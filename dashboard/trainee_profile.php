@@ -328,6 +328,14 @@ $objResult = mysqli_fetch_array($objQuery);
                     </div>
                   </div>
                   <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>ที่อยู่ 2</label>
+                        <input type="text" class="form-control" name="ol_trainee_address" placeholder="Home Address" value="">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
                     <div class="col-md-3 pr-1">
                       <div class="form-group">
                         <?php
