@@ -277,20 +277,6 @@ $objResult = mysqli_fetch_array($objQuery);
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-md-6 pr-1">
-                      <div class="form-group">
-                        <label>ตำแหน่ง 2</label>
-                        <input type="text" class="form-control" name="ol_trainee_position" placeholder="<?php echo $objResult['ol_trainee_position']; ?>" value="<?php echo $objResult['ol_trainee_position']; ?>">
-                      </div>
-                    </div>
-                    <div class="col-md-6 pl-1">
-                      <div class="form-group">
-                        <label>บริษัท 2</label>
-                        <input type="text" class="form-control" name="ol_trainee_company" placeholder="<?php echo $objResult['ol_trainee_company']; ?>" value="<?php echo $objResult['ol_trainee_company']; ?>">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
                     <div class="col-md-5 pr-1">
                       <div class="form-group">
                         <?php
