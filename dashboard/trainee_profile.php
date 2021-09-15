@@ -11,7 +11,7 @@ if (empty($_SESSION["ol_trainee_id"])) {
   header("location: ../atc.php");
 }
 
-$strSQL = "SELECT * FROM ol_trainee WHERE ol_trainee_id = " . $_SESSION["ol_trainee_id"] . "";
+$strSQL = "SELECT * FROM ol_trainee inner join ol_nationality WHERE ol_trainee_id = " . $_SESSION["ol_trainee_id"] . "";
 $objQuery = mysqli_query($con, $strSQL);
 $objResult = mysqli_fetch_array($objQuery);
 
@@ -323,7 +323,7 @@ $objResult = mysqli_fetch_array($objQuery);
                     <div class="col-md-12">
                       <div class="form-group">
                         <label>ที่อยู่</label>
-                        <input type="text" class="form-control" name="ol_trainee_address" placeholder="Home Address" value="">
+                        <input type="text" class="form-control" name="ol_trainee_address" placeholder="<?php echo $objResult['ol_trainee_address']; ?>" value="<?php echo $objResult['ol_trainee_address']; ?>">
                       </div>
                     </div>
                   </div>
@@ -335,8 +335,8 @@ $objResult = mysqli_fetch_array($objQuery);
                         $query = mysqli_query($con, $sql_provinces);
                         ?>
                         <label>จังหวัด</label>
-                        <select class="form-control" name="Ref_prov_id" id="provinces">
-                          <option value="" selected disabled>-กรุณาเลือกจังหวัด-</option>
+                        <select class="form-control" name="ol_trainee_provinces" id="provinces">
+                          <option value="<?php echo $objResult['ol_trainee_provinces']; ?>" selected ><?php echo $objResult['ol_trainee_provinces']; ?>-กรุณาเลือกจังหวัด-</option>
                           <?php foreach ($query as $value) { ?>
                             <option value="<?= $value['id'] ?>"><?= $value['name_th'] ?></option>
                           <?php } ?>
@@ -346,19 +346,19 @@ $objResult = mysqli_fetch_array($objQuery);
                     <div class="col-md-3 px-1">
                       <div class="form-group">
                         <label>อำเภอ</label>
-                        <select class="form-control" name="Ref_dist_id" id="amphures"></select>
+                        <select class="form-control" name="ol_trainee_amphures" id="amphures"></select>
                       </div>
                     </div>
                     <div class="col-md-3 px-1">
                       <div class="form-group">
                         <label>ตำบล</label>
-                        <select class="form-control" name="Ref_subdist_id" id="districts"></select>
+                        <select class="form-control" name="ol_trainee_districts" id="districts"></select>
                       </div>
                     </div>
                     <div class="col-md-3 pl-1">
                       <div class="form-group">
                         <label>รหัสไปรษณีย์</label>
-                        <input type="text" name="zip_code" id="zip_code" class="form-control">
+                        <input type="text" name="ol_trainee_zip_code" id="zip_code" class="form-control">
                       </div>
                     </div>
                   </div>
@@ -372,7 +372,7 @@ $objResult = mysqli_fetch_array($objQuery);
                   </div>
                   <div class="row">
                     <div class="update ml-auto mr-auto">
-                      <button type="submit" class="btn btn-primary btn-round">บันทึก</button>
+                      <button type="submit" class="btn btn-primary btn-round" name="btn_upload">บันทึก</button>
                     </div>
                   </div>
 
